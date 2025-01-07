@@ -9,7 +9,7 @@ export class TrasactionService {
   constructor(private http: HttpClient) { }
 
   viewTransaction() {
-    return this.http.get('http://localhost:7128/OnlineTransaction')
+    return this.http.get('https://localhost:7128/OnlineTransaction')
   }
   
 }
