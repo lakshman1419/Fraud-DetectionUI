@@ -1,4 +1,70 @@
-<h1>Hi</h1>
-  
-  
-  
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+<div class="menu-align">
+  <mat-toolbar color="primary">
+    <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/products">Home</button>
+    <button mat-menu-item routerLink="/payment">Payment</button>
+    <!--<button mat-menu-item>Help</button>-->
+  </mat-menu>
+</div>
+
+<div style="width: 80%; justify-content: center;">
+<div class="basic-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="transactionId">
+      <th mat-header-cell *matHeaderCellDef> Trasaction ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionId}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="transactionType">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionType}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="transactionStatus">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionStatus}} </td>
+    </ng-container>
+
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="transactionAmount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionAmount}} </td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="transactionDate">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionDate}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+</div>
